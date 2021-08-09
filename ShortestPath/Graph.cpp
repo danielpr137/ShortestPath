@@ -17,10 +17,10 @@ void Graph::makeEmptyGraph(int n){
 
 
 void Graph::releaseGarph() {
-	for (int i = 0; i < vSize + 1; i++) {
-		adjList[i].deleteList();
-	}
-	delete adjList;
+	//for (int i = 0; i < vSize + 1; i++) {
+	//	adjList[i].deleteList();
+	//}
+	delete[] adjList;
 	adjList = NULL;
 	vSize = 0;
 }
@@ -66,6 +66,9 @@ void Graph::NeighborsList::deleteList(){
 		current = next;
 		next = current->getNext();
 	}
+	if (current != NULL)
+		delete current;
+	firstNeighbor = lastNeighbor = NULL;
 }
 
 bool Graph::NeighborsList::addNeighbor(int v) {
@@ -98,7 +101,7 @@ bool Graph::NeighborsList::deleteNeighbor(int v) {
 	if (v == firstNeighbor->getV())	{
 		
 		firstNeighbor = firstNeighbor->getNext();
-		delete temp;
+		
 	}
 	else {
 		Vertex* prev = temp;
@@ -107,8 +110,9 @@ bool Graph::NeighborsList::deleteNeighbor(int v) {
 			temp = temp->getNext();
 		}
 		prev->setNext(temp->getNext());
-		delete temp;
 	}
+	temp->setNext(NULL);
+	delete temp;
 	return true;
 }
 
