@@ -66,6 +66,8 @@ public:
 
 	bool isEmpty();
 
+	static Graph* getGTranspose(Graph g);
+
 };
 
 
