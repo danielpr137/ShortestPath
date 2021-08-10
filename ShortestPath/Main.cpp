@@ -33,9 +33,7 @@ void main()
         cin >> u;
     }
 
-    cout << "is t,s adj: " << g.isAdjacent(s, t) << endl;
-    Vertex* list = g.getAdjList(s);
-    bool check = g.removeEdge(s, t);
-    check = g.isEmpty();
- 
+    Graph* gt = Graph::getGTranspose(g);
+    cout << "this is G: " << endl << g << endl;
+    cout << "this is G transpose: " << endl << *(gt);
 }
