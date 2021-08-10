@@ -7,21 +7,21 @@ using namespace std;
 
 struct Vertex {
 private:
-	int v;
+	int value;
 	Vertex* next;
 
 public:
-	Vertex(int v, Vertex* next = NULL) {
-		setV(v);
+	Vertex(int value, Vertex* next = NULL) {
+		setV(value);
 		setNext(next);
 	}
 		
-	Vertex(): next(NULL), v(0) {};
+	Vertex(): next(NULL), value(0) {};
 	~Vertex() {
 	}
 
 	void setV(int u) {
-		this->v = u;
+		this->value = u;
 	}
 
 	void setNext(Vertex* next) {
@@ -29,11 +29,16 @@ public:
 	}
 
 	int getV() {
-		return v;
+		return value;
 	}
 
 	Vertex* getNext() {
 		return next;
+	}
+
+	friend ostream& operator<<(ostream& out, const Vertex& vertex)
+	{
+		return out << vertex.value;
 	}
 
 };

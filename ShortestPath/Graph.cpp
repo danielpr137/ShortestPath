@@ -45,6 +45,24 @@ bool Graph::isEmpty() {
 	return (vSize == 0);
 }
 
+Graph* Graph::getGTranspose(const Graph& g) {
+	Graph* gt = new Graph(g.vSize);
+
+	for (int u = 1; u < g.vSize; u++) {
+		Vertex* pv = g.adjList[u].getList();
+		while (pv != nullptr) {
+			gt->addEdge(pv->getV(), u);
+			pv = pv->getNext();
+		}
+	}
+	return gt;
+}
+
+int Graph::getSize() {
+	return vSize;
+}
+
+
 /************************************* NeighborsList Methods**********************************/
 
 void Graph::NeighborsList::setHead(int u) {
@@ -128,3 +146,5 @@ bool Graph::NeighborsList::findNeighbor(int v) {
 Vertex* Graph::NeighborsList::getList() {
 	return firstNeighbor;
 }
+
+

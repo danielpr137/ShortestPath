@@ -33,7 +33,18 @@ private:
 
 		bool findNeighbor(int v);
 
+		
+
 		Vertex* getList();
+
+		friend ostream& operator<<(ostream& out, const NeighborsList& neighbors) {
+			Vertex* temp = neighbors.firstNeighbor;
+			while (temp != NULL) {
+				out << neighbors.head << "," << *temp << " ";
+				temp = temp->getNext();
+			}
+			return out;
+		}
 	};
 
 
@@ -65,6 +76,17 @@ public:
 	bool removeEdge(int u, int v);
 
 	bool isEmpty();
+
+	int getSize();
+
+	static Graph* getGTranspose(const Graph& g);
+
+	friend ostream& operator<<(ostream& out, const Graph& graph) {
+		for (int u = 1; u <= graph.vSize; u++) {
+			out << graph.adjList[u] << endl;
+		}
+		return out;
+	}
 
 };
 
