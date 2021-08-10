@@ -58,6 +58,11 @@ Graph* Graph::getGTranspose(const Graph& g) {
 	return gt;
 }
 
+int Graph::getSize() {
+	return vSize;
+}
+
+
 /************************************* NeighborsList Methods**********************************/
 
 void Graph::NeighborsList::setHead(int u) {

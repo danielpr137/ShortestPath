@@ -33,6 +33,8 @@ private:
 
 		bool findNeighbor(int v);
 
+		
+
 		Vertex* getList();
 
 		friend ostream& operator<<(ostream& out, const NeighborsList& neighbors) {
@@ -74,6 +76,8 @@ public:
 	bool removeEdge(int u, int v);
 
 	bool isEmpty();
+
+	int getSize();
 
 	static Graph* getGTranspose(const Graph& g);
 

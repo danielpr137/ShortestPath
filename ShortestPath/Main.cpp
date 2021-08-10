@@ -1,8 +1,10 @@
 #include "Util.h"
 #include "Graph.h"
+#include "Queue.h"
 
 void main()
 {
+
     int n;
     int s;
     int t;
@@ -16,6 +18,7 @@ void main()
     cin >> t;
     checkInput(t, n);
 
+    Queue q;
     Graph g(n);
     cin >> u;
     while (u != cin.eof())
@@ -27,6 +30,7 @@ void main()
             checkInput(v, n);
         }
 
+        q.enqueue(v);
         g.addEdge(u, v);
 
         cout << u << "," << v << endl;
@@ -35,5 +39,13 @@ void main()
 
     Graph* gt = Graph::getGTranspose(g);
     cout << "this is G: " << endl << g << endl;
-    cout << "this is G transpose: " << endl << *(gt);
+    cout << "this is G transpose: " << endl << *(gt) << endl;
+
+    cout << "this is Queue q: " << endl;
+    while (!(q.isEmpty())) {
+        Vertex* temp = q.dequeue();
+        if (temp != nullptr)
+            cout << *temp << ", ";
+        delete temp;
+    }
 }
