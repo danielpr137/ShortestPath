@@ -156,7 +156,7 @@ Vertex* Graph::NeighborsList::getList() {
 int* Graph::BFS(Vertex s)
 {
 	int vSize = getSize();
-	int* d = new int(vSize);
+	int* d = new int(vSize + 1);
 	Queue Q;
 	for (int i = 1; i <= vSize; i++)
 	{
@@ -185,4 +185,20 @@ int* Graph::BFS(Vertex s)
 
 	}
 	return d;
+}
+
+Graph* Graph::getGs(const Graph& g,int* d) {
+	Graph* gs = new Graph(g.vSize);
+
+	for (int u = 1; u <= g.vSize; u++) {
+		Vertex* pv = g.adjList[u].getList();
+		while (pv != nullptr) {
+			if (d[pv->getV()] == d[u] + 1)
+			{
+				gs->addEdge(u, pv->getV());
+			}
+			pv = pv->getNext();
+		}
+	}
+	return gs;
 }
