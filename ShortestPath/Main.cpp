@@ -48,4 +48,9 @@ void main()
             cout << *temp << ", ";
         delete temp;
     }
+    Vertex sVertex(s);
+    int* d = g.BFS(sVertex);
+
+    
+
 }
