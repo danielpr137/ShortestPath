@@ -170,19 +170,19 @@ int* Graph::BFS(Vertex s)
 	int uValue;
 	while (!Q.isEmpty())
 	{
-		uValue = Q.dequeue()->getV();
-		u = getAdjList(uValue);
-		while (u)
+		uValue = Q.dequeue();
+		v = getAdjList(uValue);
+		while (v!=NULL)
 		{
-			v = u->getNext();
 			vValue = v->getV();
-				if (d[vValue] == -1)
-				{
-					d[vValue] = d[uValue] + 1;
-					Q.enqueue(v);
-				}
-				u = u->getNext();
+			if (d[vValue] == -1)
+			{
+				d[vValue] = d[uValue] + 1;
+				Q.enqueue(vValue);
+			}	
+			v = v->getNext();
 		}
+
 	}
 	return d;
 }
