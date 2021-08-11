@@ -49,7 +49,7 @@ bool Graph::isEmpty() {
 Graph* Graph::getGTranspose(const Graph& g) {
 	Graph* gt = new Graph(g.vSize);
 
-	for (int u = 1; u < g.vSize; u++) {
+	for (int u = 1; u <= g.vSize; u++) {
 		Vertex* pv = g.adjList[u].getList();
 		while (pv != nullptr) {
 			gt->addEdge(pv->getV(), u);
@@ -62,6 +62,9 @@ Graph* Graph::getGTranspose(const Graph& g) {
 int Graph::getSize() {
 	return vSize;
 }
+
+
+
 
 
 /************************************* NeighborsList Methods**********************************/

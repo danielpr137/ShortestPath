@@ -41,12 +41,15 @@ void main()
     cout << "this is G: " << endl << g << endl;
     cout << "this is G transpose: " << endl << *(gt) << endl;
 
-    cout << "this is Queue q: " << endl;
-    while (!(q.isEmpty())) {
-        Vertex* temp = q.dequeue();
-        if (temp != nullptr)
-            cout << *temp << ", ";
-        delete temp;
+    try {
+        cout << "this is Queue q: " << endl;
+        while (!(q.isEmpty())) {
+            int temp = q.dequeue();
+            cout << temp << ", ";
+        }
+    }
+    catch (out_of_range e) {
+        cout << "queue is empty";
     }
     Vertex sVertex(s);
     int* d = g.BFS(sVertex);
