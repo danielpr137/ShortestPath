@@ -33,7 +33,7 @@ void main()
         q.enqueue(v);
         g.addEdge(u, v);
 
-        cout << u << "," << v << endl;
+        //cout << u << "," << v << endl;
         cin >> u;
     }
 
