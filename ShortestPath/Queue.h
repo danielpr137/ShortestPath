@@ -9,23 +9,25 @@ private :
 	Vertex* tail;
 
 public:
-	Queue(){}
+	Queue(): head(nullptr), tail(nullptr) {}
 	~Queue() { makeEmpty(); }
 
 	void makeEmpty() {
 		Vertex* temp;
 		while (head != nullptr){
-			temp = dequeue();
-			delete temp;
+			dequeue();
 		}
 	}
 
-	Vertex* dequeue() {
+	int dequeue() {
 		if (isEmpty())
-			return nullptr;
-		Vertex* first = head;
+			throw out_of_range("queue is empty");
+		Vertex* temp = head;
+		int first = temp->getV();
 		head = head->getNext();
-		first->setNext(nullptr);
+		
+		temp->setNext(nullptr);
+		delete temp;
 		return first;
 	}
 

@@ -88,6 +88,11 @@ public:
 		return out;
 	}
 
+
+	void forEachEdge(binary_function<int, int, void> f);
+
+	
+
 };
 
 
