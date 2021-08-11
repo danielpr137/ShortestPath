@@ -33,8 +33,6 @@ private:
 
 		bool findNeighbor(int v);
 
-		
-
 		Vertex* getList();
 
 		friend ostream& operator<<(ostream& out, const NeighborsList& neighbors) {
@@ -88,10 +86,7 @@ public:
 		return out;
 	}
 
-
-	void forEachEdge(binary_function<int, int, void> f);
-
-	
+	int* BFS(Vertex s);
 
 };
 

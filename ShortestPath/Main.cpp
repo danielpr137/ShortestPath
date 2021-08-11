@@ -33,7 +33,7 @@ void main()
         q.enqueue(v);
         g.addEdge(u, v);
 
-        cout << u << "," << v << endl;
+        //cout << u << "," << v << endl;
         cin >> u;
     }
 
@@ -51,4 +51,9 @@ void main()
     catch (out_of_range e) {
         cout << "queue is empty";
     }
+    Vertex sVertex(s);
+    int* d = g.BFS(sVertex);
+
+    
+
 }

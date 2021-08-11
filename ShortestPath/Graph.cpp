@@ -1,5 +1,6 @@
 
 #include "Graph.h"
+#include "Queue.h"
 
 
 /************************************* Graph Methods**********************************/
@@ -150,4 +151,38 @@ Vertex* Graph::NeighborsList::getList() {
 	return firstNeighbor;
 }
 
+/************************************* ShortestPath Methods**********************************/
 
+int* Graph::BFS(Vertex s)
+{
+	int vSize = getSize();
+	int* d = new int(vSize);
+	Queue Q;
+	for (int i = 1; i <= vSize; i++)
+	{
+		d[i] = -1;
+	}
+	Q.enqueue(s.getV());
+	d[s.getV()] = 0;
+	Vertex* v;
+	int vValue;
+	Vertex* u;
+	int uValue;
+	while (!Q.isEmpty())
+	{
+		uValue = Q.dequeue()->getV();
+		u = getAdjList(uValue);
+		while (u)
+		{
+			v = u->getNext();
+			vValue = v->getV();
+				if (d[vValue] == -1)
+				{
+					d[vValue] = d[uValue] + 1;
+					Q.enqueue(v);
+				}
+				u = u->getNext();
+		}
+	}
+	return d;
+}
