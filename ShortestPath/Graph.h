@@ -88,6 +88,7 @@ public:
 
 	int* BFS(Vertex s);
 
+	static Graph* getGs(const Graph& g, int* d);
 };
 
 

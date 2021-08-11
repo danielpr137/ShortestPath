@@ -20,26 +20,30 @@ void main()
 
     Queue q;
     Graph g(n);
-    cin >> u;
-    while (u != cin.eof())
+    
+    while (cin >> u)
     {
         checkInput(u, n);
-        cin >> v;
-        if (v != cin.eof())
+        
+        if (cin >> v)
         {
             checkInput(v, n);
+        }
+        else
+        {
+            cout << "invalid input" << endl;
+            exit(1);
         }
 
         q.enqueue(v);
         g.addEdge(u, v);
 
-        //cout << u << "," << v << endl;
-        cin >> u;
     }
+    cout.flush();
 
-    Graph* gt = Graph::getGTranspose(g);
+    //Graph* gt = Graph::getGTranspose(g);
     cout << "this is G: " << endl << g << endl;
-    cout << "this is G transpose: " << endl << *(gt) << endl;
+    //cout << "this is G transpose: " << endl << *(gt) << endl;
 
     try {
         cout << "this is Queue q: " << endl;
@@ -47,13 +51,15 @@ void main()
             int temp = q.dequeue();
             cout << temp << ", ";
         }
+        cout << endl;
     }
     catch (out_of_range e) {
-        cout << "queue is empty";
+        cout << "queue is empty" << endl;
     }
+
     Vertex sVertex(s);
     int* d = g.BFS(sVertex);
 
-    
-
+    Graph* Gs = Graph::getGs(g, d);
+    cout << "this is Gs: " << endl << *(Gs) << endl;
 }

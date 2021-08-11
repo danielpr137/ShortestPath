@@ -25,6 +25,8 @@ public:
 		Vertex* temp = head;
 		int first = temp->getV();
 		head = head->getNext();
+		if (head == nullptr)
+			tail = nullptr;
 		
 		temp->setNext(nullptr);
 		delete temp;
