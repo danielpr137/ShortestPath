@@ -10,10 +10,11 @@ private :
 
 public:
 	Queue(): head(nullptr), tail(nullptr) {}
-	~Queue() { makeEmpty(); }
+	~Queue() { 
+		makeEmpty(); 
+	}
 
 	void makeEmpty() {
-		Vertex* temp;
 		while (head != nullptr){
 			dequeue();
 		}

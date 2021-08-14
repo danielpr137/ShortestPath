@@ -9,10 +9,10 @@ void Graph::makeEmptyGraph(int n){
 		releaseGarph();
 	}
 
-	adjList = new NeighborsList[n + 1];
+	adjList = new NeighborsList[size_t(n) + 1];
 	vSize = n;
 	for (int i = 1; i <= n; i++) {
-		adjList[i].setHead(i);
+		adjList[size_t(i)].setHead(i);
 	}
 }
 
@@ -156,7 +156,7 @@ Vertex* Graph::NeighborsList::getList() {
 int* Graph::BFS(Vertex s)
 {
 	int vSize = getSize();
-	int* d = new int(vSize + 1);
+	int* d = new int[vSize + 1];
 	Queue Q;
 	for (int i = 1; i <= vSize; i++)
 	{
@@ -166,7 +166,7 @@ int* Graph::BFS(Vertex s)
 	d[s.getV()] = 0;
 	Vertex* v;
 	int vValue;
-	Vertex* u;
+	//Vertex* u;
 	int uValue;
 	while (!Q.isEmpty())
 	{
@@ -187,7 +187,7 @@ int* Graph::BFS(Vertex s)
 	return d;
 }
 
-Graph* Graph::getGs(const Graph& g,int* d) {
+Graph* Graph::getGs(const Graph& g, int* d) {
 	Graph* gs = new Graph(g.vSize);
 
 	for (int u = 1; u <= g.vSize; u++) {
