@@ -47,6 +47,7 @@ void main()
 
     Graph h = shortestPathsGraph(s, t, g);
     cout << h;      //print shortest path graph
+    printRunTimeToFile(shortestPathsGraph,"shortestPathsGraph", s, t, g);
 }
 
 
