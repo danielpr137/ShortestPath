@@ -12,7 +12,7 @@ The program will check the input and create the shortest paths graph (explanatio
 
 Graph& shortestPathsGraph(int s, int t, Graph& g);
 
-void main()
+int main()
 {
     int n;  //number of vertexes in G
     int s;  //start vertex for shortest path algorithm
@@ -31,6 +31,7 @@ void main()
     Graph h = shortestPathsGraph(s, t, g);
     cout << h;      //print shortest path graph
     printRunTimeToFile(shortestPathsGraph,"shortestPathsGraph", s, t, g);
+    return 0;
 }
 
 
