@@ -7,6 +7,9 @@
 
 using namespace std;
 
-void checkN(int n);
-void checkInput(int input, int n);
+//this function checks if the input number is positive.
+void checkN(int n); //input: input number of vertexes from stdin, output: exit(1) if invalid input
+
+//this function checks if the input number is bigger than 0 and smaller than 'n'.
+void checkInput(int input, int n); //input:vertex value from stdin, output: exit(1) if invalid input
 
