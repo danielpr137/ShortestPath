@@ -11,7 +11,7 @@ void checkN(int n)
 
 void checkInput(int input, int n)
 {
-	if (input <=0 || input > n)
+	if (input <= 0 || input > n)
 	{
 		cout << "invalid input" << endl;
 		exit(1);
