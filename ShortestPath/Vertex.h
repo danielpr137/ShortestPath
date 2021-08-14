@@ -17,8 +17,7 @@ public:
 	}
 		
 	Vertex(): next(NULL), value(0) {};
-	~Vertex() {
-	}
+	~Vertex() {}
 
 	void setV(int u) {
 		this->value = u;
