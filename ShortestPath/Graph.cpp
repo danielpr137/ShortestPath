@@ -191,7 +191,6 @@ int* Graph::BFS(Vertex s)
 	d[s.getV()] = 0;
 	Vertex* v;
 	int vValue;
-	//Vertex* u;
 	int uValue;
 	while (!Q.isEmpty())
 	{

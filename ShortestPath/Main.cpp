@@ -1,3 +1,11 @@
+/*
+This Program creates the shortest paths graph from an input graph. 
+It gets the number of vertexes, starting and target vertexes, and the edges from the user.
+    1) First, the user will enter the number of vertexes of the requested graph (a positive integer).
+    2) After pressing 'space' or 'Enter' the next input will be the starting vertex, and the target vertex for the requested path.
+    3) The next input will be the edges in the garph - pairs of integers, an origin vertex and destination vartex seperated with space or enter.
+The program will check the input and create the shortest paths graph (explanation documented in the algorithm).
+*/
 #include "Util.h"
 #include "Graph.h"
 #include "Queue.h"
