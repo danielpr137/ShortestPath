@@ -5,9 +5,9 @@
 #include <chrono>
 #include <stdlib.h>
 #include <iomanip>
-#include "Graph.h"
 
 using namespace std;
+class Graph;		//forward declaration
 
 //typedef to parameterialize a function that recieves 2 integers and Graph referance as arguments,
 //and it's return value is a Graph referance

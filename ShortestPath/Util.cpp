@@ -1,4 +1,6 @@
 #include "Util.h"
+#include "Graph.h"
+
 
 void checkN(int n)
 {
@@ -17,7 +19,6 @@ void checkInput(int input, int n)
 		exit(1);
 	}
 }
-
 
 void printRunTimeToFile(Func f ,string f_name, int p1, int p2, Graph& p3) {
 	auto start = chrono::high_resolution_clock::now();
