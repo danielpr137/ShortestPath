@@ -1,3 +1,5 @@
+//This Header holds the libraries for the program
+//and general valid checks for the inputs from the user
 #pragma once
 #include <iostream>
 #include <string>
