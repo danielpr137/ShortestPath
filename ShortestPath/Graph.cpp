@@ -18,9 +18,7 @@ void Graph::makeEmptyGraph(int n){
 
 
 void Graph::releaseGarph() {
-	//for (int i = 0; i < vSize + 1; i++) {
-	//	adjList[i].deleteList();
-	//}
+
 	delete[] adjList;
 	adjList = NULL;
 	vSize = 0;
