@@ -33,6 +33,8 @@ void printRunTimeToFile(Func f ,string f_name, int p1, int p2, Graph& p3) {
 	ofstream myfile("Measure.txt"); // The name of the file
 	myfile << "Time taken by function " << f_name << " is : " << fixed
 		<< time_taken << setprecision(9);
-	myfile << " sec" << endl;
+	cout << "Time taken by function " << f_name << " is : " << fixed
+		<< time_taken << setprecision(9);
+	cout << " sec" << endl;
 	myfile.close();
 }
