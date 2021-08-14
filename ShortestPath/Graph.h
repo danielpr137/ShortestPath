@@ -2,7 +2,6 @@
 
 #include "Vertex.h"
 
-
 class Graph {
 private:
 
@@ -38,13 +37,12 @@ private:
 		friend ostream& operator<<(ostream& out, const NeighborsList& neighbors) {
 			Vertex* temp = neighbors.firstNeighbor;
 			while (temp != NULL) {
-				out << neighbors.head << "," << *temp << " ";
+				out << neighbors.head << " " << *temp << endl;
 				temp = temp->getNext();
 			}
 			return out;
 		}
 	};
-
 
 	NeighborsList* adjList;
 	int vSize;
@@ -81,7 +79,8 @@ public:
 
 	friend ostream& operator<<(ostream& out, const Graph& graph) {
 		for (int u = 1; u <= graph.vSize; u++) {
-			out << graph.adjList[u] << endl;
+			if(graph.adjList[u].getList()!=NULL)
+				out << graph.adjList[u] ;
 		}
 		return out;
 	}
