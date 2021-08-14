@@ -14,12 +14,10 @@ Graph& shortestPathsGraph(int s, int t, Graph& g);
 
 void main()
 {
-
     int n;  //number of vertexes in G
     int s;  //start vertex for shortest path algorithm
     int t;  //target vertex for shortest path algorithm 
-    int u;  //origin vertex of an edge
-    int v;  //destination vertex of the edge
+
     cin >> n; 
     checkN(n);  //check if valid input
     cin >> s;
@@ -27,23 +25,8 @@ void main()
     cin >> t;           
     checkInput(t, n);   //check if target vertex in G
 
-    Graph g(n);         //create G graph
-    
-    while (cin >> u)    //check if input is eof (^Z)
-    {
-        checkInput(u, n);
-        if (cin >> v)   
-        {
-            checkInput(v, n);
-        }
-        else
-        {
-            cout << "invalid input" << endl;
-            exit(1);
-        }
-
-        g.addEdge(u, v);
-    }
+    Graph g;            //create G graph
+    g.readGraph(n);
 
     Graph h = shortestPathsGraph(s, t, g);
     cout << h;      //print shortest path graph

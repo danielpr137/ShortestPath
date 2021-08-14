@@ -4,6 +4,31 @@
 
 
 /************************************* Graph Methods**********************************/
+
+void Graph::readGraph(int n) {
+
+	int u;  //origin vertex
+	int v;  //destination vertex
+
+	makeEmptyGraph(n);
+
+	while (cin >> u)    //check if input is eof (^Z)
+	{
+		checkInput(u, n);
+		if (cin >> v)
+		{
+			checkInput(v, n);
+		}
+		else
+		{
+			cout << "invalid input" << endl;
+			exit(1);
+		}
+
+		this->addEdge(u, v);
+	}
+}
+
 void Graph::makeEmptyGraph(int n){
 	if (adjList != NULL) {
 		releaseGarph();
@@ -60,6 +85,8 @@ Graph* Graph::getGTranspose(const Graph& g) {
 int Graph::getSize() {
 	return vSize;
 }
+
+
 
 
 

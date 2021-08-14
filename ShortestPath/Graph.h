@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Vertex.h"
+#include "Util.h"
+
 
 //A Class to represent the ADT Graph using an adjacency list
 class Graph {
@@ -75,6 +77,10 @@ public:
 			releaseGarph();
 	}
 
+	//this method recieves the number of vertexes that would be in the graph
+	//then procceeds to get the edges information from stdin
+	void readGraph(int n);
+
 	//this method builed/re-builed an edge-free graph with n vertexes (1,2,3,...,n)
 	void makeEmptyGraph(int n);
 
@@ -104,9 +110,6 @@ public:
 	//getter for the amount of vertexes listed in the graph
 	int getSize();
 
-	//static functiong the recieves Graph g, and build it's transpose version 'Gt'
-	//returns the pointer to Gt
-	static Graph* getGTranspose(const Graph& g);
 
 	//print operator overloading
 	friend ostream& operator<<(ostream& out, const Graph& graph) {
@@ -122,6 +125,10 @@ public:
 	//i.e. if s=1 and the edge (1,2) is in the graph => d[1] == 0; d[2] == 1;
 	//the method utilizes the BFS algorithm, hence it's name
 	int* BFS(Vertex s);
+
+	//static functiong the recieves Graph g, and build it's transpose version 'Gt'
+	//returns the pointer to Gt
+	static Graph* getGTranspose(const Graph& g);
 
 	//this static method recieves a Graph g and and array d[] (the oucome of g.BFS(s))
 	//and returns the spanning tree of g that has shortest paths from s to every other vertex in g
